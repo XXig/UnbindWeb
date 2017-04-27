@@ -14,10 +14,6 @@
 					})
 					$(".btn").click(function(){
 						console.log('test');
-						for(var i=0;i<$(l +" li a");i++){
-							var hammeraLi = new Hammer($(l +" li a")[i]);
-							hammeraLi.trigger("click");
-						}
 						// setTimeout(function(){
 						// 	console.log();
 						// },0)

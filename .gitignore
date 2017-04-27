@@ -1,6 +1,7 @@
 *          # 忽略全部
 dist/
 build/
+app/
 
 
 !/src/    # 不忽略的文件夹
