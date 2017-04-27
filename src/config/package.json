@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "devDependencies": {
+    "async": "latest",
+    "autoprefixer": "latest",
+    "browserslist": "latest",
+    "caniuse-db": "latest",
+    "css-spritesmith": "latest",
+    "gm": "latest",
+    "grunt": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-usemin": "latest",
+    "matchdep": "latest",
+    "num2fraction": "latest",
+    "spritesmith": "latest"
+  }
+}
+
