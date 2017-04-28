@@ -33,23 +33,23 @@ body { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-or
 .header { width: 100%; height: 50px; line-height: 50px; background-color: #00bbee; display: -webkit-box; display: -ms-flexbox; display: flex; overflow: hidden; }
 .header .logo { -webkit-box-flex: 1; -ms-flex: auto; flex: auto; color: #fff; font-size: 24px; font-weight: bold; text-align: center; }
 .header .logo span { padding-left: .4em; font-size: 12px; font-weight: normal; opacity: .8; }
-.header .nav { -webkit-box-flex: 1; -ms-flex: auto; flex: auto; display: -webkit-box; display: -ms-flexbox; display: flex; background-color: #00bbee; }
+.header .nav { -webkit-box-flex: 2; -ms-flex: 2 1 auto; flex: 2 1 auto; display: -webkit-box; display: -ms-flexbox; display: flex; background-color: #00bbee; }
 .header .nav li { -webkit-box-flex: 0; -ms-flex: 0 0 90px; flex: 0 0 90px; }
 .header .nav a { display: block; width: 40px; height: 40px; margin: 5px auto; color: #fff; font-size: 16px; text-align: center; }
 .header .nav a:hover, .header .nav a:focus { border-bottom: 2px solid CurrentColor; }
 .header .nav .on { border-bottom: 2px solid CurrentColor; }
 .header #social:target ~ .main ul li { opacity: 0.75; }
 
-.main { width: 80%; padding-top: 20px; margin: 10px auto; overflow: scroll; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-.main ul { -webkit-box-flex: 0; -ms-flex: 0 1 auto; flex: 0 1 auto; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 5px; }
-.main ul li { -webkit-box-flex: 1; -ms-flex: 1 0 auto; flex: 1 0 auto; padding: 0 14px; margin: 2% 4%; border: 1px solid currentColor; color: #B3B3B3; font-size: 14px; line-height: 50px; text-align: center; }
-.main ul a { display: block; }
-.main ul .on { color: #FF852E; position: relative; border-color: currentColor; }
-.main ul .on:after { content: ""; position: absolute; right: 0; bottom: 0; border: 10px solid transparent; border-right: 30px solid currentColor; border-bottom-width: 0; }
-.main .btn { -webkit-box-flex: 1; -ms-flex: 1 1 100%; flex: 1 1 100%; height: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.main { width: 75%; margin: 10px auto; overflow: scroll; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.main .btn { -webkit-box-flex: 1; -ms-flex: 1 0 100%; flex: 1 0 100%; height: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 .main .btn a { -webkit-box-flex: 0; -ms-flex: 0 0 100px; flex: 0 0 100px; background-color: #00bbee; border-radius: 5px; color: #fff; font-size: 16px; text-align: center; line-height: 40px; }
 .main .btn a:hover, .main .btn a:focus { opacity: .8; }
 .main .btn span { padding-left: 1em; -webkit-box-flex: 1; -ms-flex: 1 0 auto; flex: 1 0 auto; color: #999; line-height: 60px; }
+.main ul { -webkit-box-flex: 0; -ms-flex: 0 1 auto; flex: 0 1 auto; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 5px; }
+.main ul li { -webkit-box-flex: 1; -ms-flex: 1 0 auto; flex: 1 0 auto; height: 50px; padding: 0 20px; margin: 2% 4%; border: 1px solid currentColor; color: #B3B3B3; font-size: 14px; text-align: center; line-height: 50px; -webkit-user-select: none; }
+.main ul a { display: block; }
+.main ul .on { color: #FF852E; position: relative; border-color: currentColor; }
+.main ul .on:after { content: ""; position: absolute; right: 0; bottom: 0; border: 10px solid transparent; border-right: 30px solid currentColor; border-bottom-width: 0; }
 
-.foot { padding: 8px 0; background-color: #1E1B29; color: #999; font-size: 14px; text-align: center; }
+.foot { -webkit-box-flex: 0; -ms-flex: 0 0 30px; flex: 0 0 30px; background-color: #1E1B29; color: #999; font-size: 14px; text-align: center; line-height: 30px; }
 .foot:hover { color: #ccc; }

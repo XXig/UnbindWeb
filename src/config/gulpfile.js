@@ -83,12 +83,12 @@ gulp.task('app', function(){
 	.pipe(gulp.dest(distlj+'/html'));
 });
 
-gulp.task('default', function () {
-	return gulp.src(distlj+'/**/*', {read: false})
-	.pipe($.clean());
-});
+// gulp.task('default', function () {
+// 	return gulp.src(distlj+'/**/*', {read: false})
+// 	.pipe($.clean());
+// });
 
-gulp.task('watch',function(){ 
+gulp.task('default',function(){ 
 	gulp.start('copyig','copy', 'jsmin', 'cssmin', 'imgmin');
 	gulp.watch(srclj+'/**/*', ['jsmin','cssmin','app','imgmin']);
 });
