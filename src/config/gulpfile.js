@@ -1,5 +1,6 @@
 var gulp = require('gulp'), 
 $ = require('gulp-load-plugins')(),
+sass = require('gulp-sass'),
 rev = require('gulp-rev-append'),
 cssver = require('gulp-make-css-url-version'),
 sever = require('browser-sync');
@@ -9,16 +10,16 @@ distlj = '../app';
 
 
 gulp.task('cssmin',function () {
-	return $.rubySass(srclj+'/css/*.scss', { style: 'compact' })
-	.pipe($.changed(srclj+'/css')) 
-	.on('error', function (err) {console.error(err.message)})
+	return gulp.src(srclj+'/css/*.scss')
+	.pipe(sass().on('error', sass.logError))
+	.pipe(gulp.dest(srclj+'/css'))
 	.pipe($.autoprefixer({
 		browsers: ['> 5%','last 2 versions', 'Android >= 4.0'],
 		// browsers: ['> 5%','last 2 versions', 'ie 6-11'],
 		cascade: false, 
 		remove:false 
 	}))
-	.pipe(gulp.dest(srclj+'/css'))
+	.pipe(gulp.dest(srclj+'/css/'))
 	.pipe(cssver()) 
 	.pipe($.rename({ suffix: '.min' }))
 	.pipe($.minifyCss({
