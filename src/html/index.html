@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="renderer" content="webkit">
 	<meta name="author" content="XXig">
-	<meta name="keywords" content="解绑 取消手机绑定 一键取消">
-	<meta name="description" content="方便用户更换号码时解除互联网上账号信息">
+	<meta name="keywords" content="解绑 解除绑定 取消手机绑定 一键解绑">
+	<meta name="description" content="方便用户更换手机号码时解除互联网上绑定的手机信息">
 	<!-- build:css ../css/base.min.css?rev=@@hash -->
 	<link rel="stylesheet" type="text/css" href="../css/base.css?rev=@@hash">
 	<!-- endbuild -->
@@ -18,65 +18,29 @@
   <![endif]-->
 </head>
 <body>
-	<div class="header">
-		<div class="logo">解绑<span>换号解绑</span></div>
-		<ul class="nav">
-			<li class="nav-s" hidden="">=</li>
-			<li><a href="#friends" class="on">社交</a></li>
-			<li><a href="#financial">金融</a></li>
-			<li><a href="#shopping">购物</a></li>
-			<li><a href="#tv">视频</a></li>
-			<li><a href="#job">求职</a></li>
-			<li><a href="#tourism">旅游</a></li>
-			<li><a href="#other">其他</a></li>
-		</ul>
+	<div class="wrap" id="app">
+		<div class="header">
+			<div class="logo">解绑<span>换号解绑</span></div>
+			<ul class="nav">
+				<li class="nav-s" hidden="">=</li>
+				<li v-for="link in nav">
+					<a href="#" :class="link.on?'on':''" @click.stop.prevent="navli($index)">{{link.name}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tip">打开页面登录 -- 在个人中心（或账户设置），找到需要修改的信息 -- 进行修改、保存</div>
+		<div class="main">
+			<ul v-for="link in nav" id="{{link.id}}">
+				<li v-for="li in nav[$index].list" :class="link.on?'on':''" @click="">
+					<a target="_blank" title="立即前往" href="{{li.url}}">{{li.name}}</a>
+				</li>
+			</ul>
+		</div>
+		<footer class="foot"><a href="mailto:xxig.hr@qq.com">xxig.hr@qq.com</a></footer>
 	</div>
-	<div class="tip">打开页面登录 -- 在个人中心（或账户设置），找到需要修改的信息 -- 进行修改、保存</div>
-	<div class="main">
-		<ul id="friends">
-			<li class="on"><a target="_blank" title="立即前往" href="http://kf.qq.com/faq/120322fu63YV130422iqMNZn.html">微信</a></li>
-			<li class="on"><a target="_blank" title="立即前往" href="https://aq.qq.com/cn2/index">QQ（密保手机更换）</a></li>
-			<li class="on"><a target="_blank" title="立即前往" href="https://security.weibo.com/account/confirmoldphone">新浪微博</a></li>
-		</ul>
-		<ul id="financial">
-			<li><a target="_blank" title="立即前往" href="http://jingyan.baidu.com/article/8065f87fcabd1a23312498ef.html">银行卡</a></li>
-			<li><a target="_blank" title="立即前往" href="https://custweb.alipay.com/account/index.htm ">支付宝</a></li>
-		</ul>
-		<ul id="shopping">
-			<li><a target="_blank" title="立即前往" href="https://member1.taobao.com/member/fresh/account_security.htm?spm=a21bo.50862.754894437.6.kDlx7x  ">淘宝</a></li>
-			<li><a target="_blank" title="立即前往" href="http://www.meituan.com/account/settings?mtt=1.account%2Fgrowth.0.0.j1zsjlhy">美团</a></li>
-			<li><a target="_blank" title="立即前往" href="https://www.nuomi.com/uc/user/userinfo">百度糯米</a></li>
-			<li><a target="_blank" title="立即前往" href="https://www.dianping.com/account/setup">大众点评</a></li>
-		</ul>
-		<ul id="tv">
-			<li><a target="_blank" title="立即前往" href="https://id.youku.com/">优酷土豆</a></li>
-			<li><a target="_blank" title="立即前往" href="http://passport.iqiyi.com/pages/secure/index.action">爱奇艺</a></li>
-			<li><a target="_blank" title="立即前往" href="http://www.acfun.cn/member/#area=profile">AcFun</a></li>
-			<li><a target="_blank" title="立即前往" href="https://passport.bilibili.com/site/site.html">bilibili</a></li>
-		</ul>
-		<ul id="job">
-			<li><a target="_blank" title="立即前往" href="https://my.58.com/pro/userdata?PGTID=0d000000-0000-0f91-be26-5dad5e346c55&ClickID=1">58同城</a></li>
-			<li><a target="_blank" title="立即前往" href="http://i.51job.com/userset/security_center.php?lang=c">前程无忧</a></li>
-			<li><a target="_blank" title="立即前往" href="https://account.lagou.com/account/accountBind.html">拉钩网</a></li>
-			<li><a target="_blank" title="立即前往" href="https://i.zhaopin.com/ResumeCenter/AccountSet/Index?tab=2">智联招聘</a></li>
-		</ul>
-		<ul id="tourism">
-			<li><a target="_blank" title="立即前往" href="https://kyfw.12306.cn/otn/modifyUser/initQueryUserInfo">12306</a></li>
-			<li><a target="_blank" title="立即前往" href="https://i.tuniu.com/userinfoconfirm">途牛旅游</a></li>
-			<li><a target="_blank" title="立即前往" href="https://sinfo.ctrip.com/MyInfo/AccountCenter/UserInfoUpdate.aspx">携程旅游</a></li>
-			<li><a target="_blank" title="立即前往" href="http://member.ly.com/center/information">同城旅游</a></li>
-			<li><a target="_blank" title="立即前往" href="http://user.qunar.com/userinfo/account.jsp#/modify/email">去哪儿</a></li>
-		</ul>
-		<ul id="other">
-			<li><a target="_blank" title="立即前往" href="http://passport.baidu.com/center">百度</a></li>
-			<li><a target="_blank" title="立即前往" href="http://i.360.cn/profile/accountsecurity?sb_param=cf05bf2f31f20b2811e2b955f91153ad">360</a></li>
-			<li><a target="_blank" title="立即前往" href="https://reg.163.com/mibao/controller/mob/index.jsp">网易</a></li>
-		</ul>
-	</div>
-	<footer class="foot"><a href="mailto:xxig.hr@qq.com">xxig.hr@qq.com</a></footer>
-	<div class="bg" hidden></div>
 	<!-- build:js ../js/main.min.js?rev=@@hash -->
 	<script src="../js/zepto.min.js?rev=@@hash"></script>
+	<script src="../js/vue.js?rev=@@hash"></script>
 	<script src="../js/style.js?rev=@@hash"></script>
 	<!-- endbuild -->
 </body>
