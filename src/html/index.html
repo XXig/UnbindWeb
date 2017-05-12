@@ -30,9 +30,9 @@
 		</div>
 		<div class="tip">打开页面登录 -- 在个人中心（或账户设置），找到需要修改的信息 -- 进行修改、保存</div>
 		<div class="main">
-			<ul v-for="link in nav" id="{{link.id}}">
+			<ul v-for="link in nav" :id="link.id">
 				<li v-for="li in nav[$index].list" :class="link.on?'on':''" @click="">
-					<a target="_blank" title="立即前往" href="{{li.url}}">{{li.name}}</a>
+					<a target="_blank" title="立即前往" :href="li.url">{{li.name}}</a>
 				</li>
 			</ul>
 		</div>

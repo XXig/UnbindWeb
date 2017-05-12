@@ -151,34 +151,33 @@
 	];
 	document.body.addEventListener("touchmove",function(a){a.preventDefault()},!1);
 	document.querySelector(".main").addEventListener("touchmove",function(a){a.stopPropagation()},!1);
-	var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
 	var _nav={
 		c:!0,
-		click:function(){
+		click:function () {
+			var ct = (document.ontouchstart!==null) ? 'click' : 'touchstart';
+			$(".nav-s").on(ct,function(){
+				_nav.c?($(".main").css("overflow","hidden"),$(".nav").css("height","407px"),_nav.c=!1):(_nav.c=!0,_nav.close())
+			});
+		},
+		close:function(){
 			this.c&&($(".main").css("overflow",""),$(".nav").css("height",""));
 		}
 	};
-	$(".nav-s").on(clickEvent,function(){
-		if (_nav.c) {
-			$(".main").css("overflow","hidden"),
-			$(".nav").css("height","407px"),
-			_nav.c=!1;
-		}
-		else{
-			_nav.c=!0;_nav.click()
-		}
-	});
+	_nav.click();
 	var vm = new Vue({
 		el: '#app',
 		data: {
-			nav:{}
+			nav:navdata
 		},
-		ready:function(){
-			this.nav = navdata;
-		},
+		// data: {
+		// 	nav:{}
+		// },
+		// ready:function(){
+		// 	this.nav = navdata;
+		// },
 		methods:{
 			navli:function(index){
-				_nav.c=!0,_nav.click();
+				_nav.c=!0,_nav.close();
 				var e=event.target;
 				var nava = document.querySelectorAll('.nav-s~li a');
 				for (var i = 0; i < nava.length; i++) {
@@ -186,25 +185,25 @@
 				}
 				e.className="on";
 
-				var main=document.querySelectorAll('.main ul');
-				for (var i = 0; i < main.length; i++) {
-					var _li=main[i].childNodes;
-					for (var b = 0; b < _li.length; b++) {
-						_li[b].className="";
-					}
+				var _li=document.querySelectorAll('.main ul li')
+				for (var i = 0; i < _li.length; i++) {
+					_li[i].className="";
 				}
-				var _main=main[index];
+
+				var _main=document.querySelectorAll('.main ul')[index];
 				for (var i = 0; i < _main.childNodes.length; i++) {
 					_main.childNodes[i].className="on";
 				}
 
-				var vt = _main.offsetTop;
-				var vh = _main.scrollHeight;
-				document.querySelector('.main').scrollTop =vt-vh;
+				var vt = _main.offsetTop,
+				vh = _main.scrollHeight,
+				tp = vt - vh;
+				tp = tp<0?0:tp;
+				document.querySelector('.main').scrollTop = tp;
 			},
 			mainli:function(){
-				var e=event.target;
-				e.className?e.className="":e.className="on";
+				var ec=event.target.className;
+				ec=ec?"":"on"
 			}
 		}
 	})
