@@ -1,7 +1,9 @@
-*          # 忽略全部
+﻿*          # 忽略全部
 dist/**/*
 build/**/*
 app/**/*
+src/css/*.css
+src/js/main.min.js
 
 
 !/src/    # 不忽略的文件夹
